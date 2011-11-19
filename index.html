@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Controlling the height of a fixed-height iFrame</title>
+		<style>
+			body {
+				font-size:1;
+				color:#333;
+				font-family:Georgia, Arial, Helvetica, Sans-serif;
+			}
+			iframe {
+				margin:0 auto;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				var checkHeight;
+
+				var iframe = document.getElementById('iframe');
+					if(iframe.contentDocument) {
+					content = iframe.contentDocument;
+				} else {
+					content = iframe.contentWindow;
+				}
+
+				checkHeight = function () {
+					var bodyHeight = content.body.offsetHeight,
+					    padding = 40;
+					
+					if (content.body.offsetHeight > iframe.height) {
+						iframe.height = bodyHeight + padding;
+					}
+					window.setTimeout(checkHeight, 500);
+				}
+
+				window.setTimeout(checkHeight, 500);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Controlling the height of a fixed-height iFrame</h1>
+		<iframe src="iframed_index.html" id="iframe" width="520" height="400"></iframe>
+	</body>
+</html>

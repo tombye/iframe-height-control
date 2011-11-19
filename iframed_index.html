@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Controlling the height of a fixed-height Iframe - Inner content</title>
+		<style>
+			body {
+				font-size:1;
+				color:#333;
+				font-family:Georgia, Arial, Helvetica, Sans-serif;
+				overflow:hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<p>This is content inside an iframe. <a href="#" id="action">Click on this link to add content</a> <br /><br />(the iframe should stretch to accomodate it).</p>
+		<script type="text/javascript">
+			document.getElementById('action').onclick = function () {
+				var para = document.createElement('p');
+				var paraTxt = document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est tellus, consequat non volutpat vestibulum, tincidunt imperdiet lorem. Mauris laoreet leo odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Quisque sit amet erat lorem. Nullam id velit risus, eget euismod arcu. Proin tempor venenatis tortor eu iaculis. Cras hendrerit tellus eu justo fringilla id facilisis nulla porta. Sed iaculis, nisi quis imperdiet iaculis, mi nisi tempor est, ut suscipit ligula nulla aliquet metus. Nulla purus enim, consequat eget elementum ac, tempus in est. In hac habitasse platea dictumst.');
+				para.appendChild(paraTxt);
+				this.parentNode.appendChild(para);
+				return false;
+			};
+		</script>
+	</body>
+</html>
